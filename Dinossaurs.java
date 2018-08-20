@@ -90,41 +90,6 @@ class Dinossaurs {
 
 	}
 
-	public static void findFastestDinossaurs(Hashtable<String, Dinossaur> dinossaurs) {
-		int i = 0;
-		int bipedals = 0;
-
-		// find number of bipedal dinossaurs
-		for(Map.Entry<String, Dinossaur> d : dinossaurs.entrySet()) {
-			if(d.getValue().getStance() == STANCE.bipedal) {
-				bipedals++;
-			}
-		}
-
-		// add dinossaurs names and speeds to auxiliar arrays
-		String[] dinossaursNames = new String[bipedals];
-		double[] dinossaursSpeeds = new double[bipedals];
-		for(Map.Entry<String, Dinossaur> d : dinossaurs.entrySet()) {
-			if(d.getValue().getStance() == STANCE.bipedal) {
-				dinossaursNames[i] = d.getKey();
-				dinossaursSpeeds[i] = d.getValue().getSpeed();
-				i++;
-			}
-		}
-
-		// sorts dinossaurs by speed
-		quickSort(dinossaursSpeeds, 0, dinossaursNames.length - 1, dinossaursNames);
-
-		// print fastest bipedal dinossaurs
-		printFastestBipedals(dinossaursNames, dinossaursSpeeds);
-	}
-
-	public static void printFastestBipedals(String[] dinossaursNames, double[] dinossaursSpeeds) {
-		for(int i = dinossaursNames.length - 1; i >= 0; i-- ) {
-			System.out.println(dinossaursNames[i]);
-		}
-	}
-
 	public static void readEstatistics(Hashtable<String, Dinossaur> dinossaurs) {
 		String line = null;
 
@@ -223,6 +188,41 @@ class Dinossaurs {
 
 		if (high > i)
 			quickSort(arr, i, high, names);
+	}
+
+	public static void findFastestDinossaurs(Hashtable<String, Dinossaur> dinossaurs) {
+		int i = 0;
+		int bipedals = 0;
+
+		// find number of bipedal dinossaurs
+		for(Map.Entry<String, Dinossaur> d : dinossaurs.entrySet()) {
+			if(d.getValue().getStance() == STANCE.bipedal) {
+				bipedals++;
+			}
+		}
+
+		// add dinossaurs names and speeds to auxiliar arrays
+		String[] dinossaursNames = new String[bipedals];
+		double[] dinossaursSpeeds = new double[bipedals];
+		for(Map.Entry<String, Dinossaur> d : dinossaurs.entrySet()) {
+			if(d.getValue().getStance() == STANCE.bipedal) {
+				dinossaursNames[i] = d.getKey();
+				dinossaursSpeeds[i] = d.getValue().getSpeed();
+				i++;
+			}
+		}
+
+		// sorts dinossaurs by speed
+		quickSort(dinossaursSpeeds, 0, dinossaursNames.length - 1, dinossaursNames);
+
+		// print fastest bipedal dinossaurs
+		printFastestBipedals(dinossaursNames, dinossaursSpeeds);
+	}
+
+	public static void printFastestBipedals(String[] dinossaursNames, double[] dinossaursSpeeds) {
+		for(int i = dinossaursNames.length - 1; i >= 0; i-- ) {
+			System.out.println(dinossaursNames[i]);
+		}
 	}
 
 }
