@@ -3,7 +3,6 @@ import java.util.*;
 
 public class MostPopularNumber {
     public static void main(String args[]) {
-        String word = new String("abccfg");
         
         int[] arr = {34, 31, 34, 77, 82};
 
