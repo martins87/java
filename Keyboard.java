@@ -32,16 +32,12 @@ public class Keyboard {
 
         while(sequenceIndex < sequence.length() - 1) {
 
-            // get positions
+            // get next transition
             currentPosition = positions[ Character.getNumericValue( sequence.charAt(sequenceIndex) ) ];
-            nextPosition = positions[ Character.getNumericValue( sequence.charAt(sequenceIndex + 1) ) ];
+            nextPosition = positions[ Character.getNumericValue( sequence.charAt(++sequenceIndex) ) ];
 
+            // calculate distance between two points
             distance += getDistance(currentPosition, nextPosition, keyboardDistances);
-
-            currentPosition = nextPosition;
-            nextPosition = positions[ Character.getNumericValue( sequence.charAt(sequenceIndex + 1) ) ];
-
-            sequenceIndex++;
         }
 
         System.out.println(distance);
