@@ -36,7 +36,7 @@ public class Keyboard {
             currentPosition = positions[ Character.getNumericValue( sequence.charAt(sequenceIndex) ) ];
             nextPosition = positions[ Character.getNumericValue( sequence.charAt(++sequenceIndex) ) ];
 
-            // calculate distance between two points
+            // get distance between two points
             distance += getDistance(currentPosition, nextPosition, keyboardDistances);
         }
 
